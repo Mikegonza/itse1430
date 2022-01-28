@@ -25,6 +25,8 @@ namespace Demo
             string name = "Bob";
 
             int hoursWorked;
+            hoursWorked=0;
+            //Definitely assigned
             hoursWorked =10;
             intValue = hoursWorked;
 
