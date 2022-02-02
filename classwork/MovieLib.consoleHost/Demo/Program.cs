@@ -4,7 +4,43 @@ namespace Demo
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main ( string[] args )
+          {
+            //DemoPrimitives();
+            //Arithmetic opeerators
+            int x = 10, y = 20, z;
+            z= x+y;
+            z= x-y;
+            z= x*y;
+            z= x/y;
+            z= x%y;
+            //x++ prefix increment
+            //temp=x;
+            //x+1=1;
+            //temp;
+            x=10;
+            x++;
+
+            //++x posfix increment
+            //x+=;
+            //x;
+            ++x;
+
+            //x-- prefix decrement
+            //temp=x;
+            //x-=1;
+            //temp;
+            x=10;
+            x--;
+
+            //--x posfix decrement
+            //x-=1;
+            //x;
+            --x;
+
+
+        }
+        static void DemoPrimitves ()
         {
             //Primitives
             //Integrals
@@ -29,8 +65,7 @@ namespace Demo
             //Definitely assigned
             hoursWorked =10;
             intValue = hoursWorked;
-
-
         }
     }
-}
+ }
+    
