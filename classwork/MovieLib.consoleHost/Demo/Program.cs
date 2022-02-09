@@ -5,6 +5,24 @@ namespace Demo
     class Program
     {
         static void Main ( string[] args )
+
+        // strings
+        {
+            var payRate = 8.75;
+            var payRatesString = payRate.ToString();
+            // Escape sequence- character sequence that represents somenthing that is unprintable
+            //\n newline
+            //  \t horizontal tab
+            //   \\ single slash
+            //    \" double quote
+            string literal = "hello World\nBob";
+            string filePath = "C:\\windows\\system32";
+            string filePath2 = @"C\windows\system32";  // verbatim string ignores escape sequences
+
+
+
+        }
+       
           {
             //DemoPrimitives();
             //Arithmetic opeerators

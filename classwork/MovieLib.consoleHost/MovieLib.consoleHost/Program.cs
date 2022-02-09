@@ -9,12 +9,73 @@ namespace MovieLib.consoleHost
         {
             //Block style declaration - all variables declared at top of function
             //on demand / inline declaration - variables are declared as needed
-
+            do
+            { 
             char input = DisplayMenu();
+            
+            
+                //Handle input
+               // if (input== 'A')
+               //     AddMovie();
+               // else if (input =='V')
+                //    ViewMovie();
+               // else if (input =='Q')
+               //     if (confirmQuit())
+               //         break; //exits the loop
+               switch (input)
+                {
+                    case 'a':
+                    case 'A': AddMovie();break;
+                    case 'v':
+                    case 'V': ViewMovie();break;
+                    case 'q':
+                    case 'Q':
+                    {
+                        if (confirmQuit())
+                            break;
+                        break;
+                    };
+                    default: Console.WriteLine("Unknown option"); break;
+                };
+               } while (true);
+        }
+        private static void ViewMovie()
+        {
+            //ToDo movie exist
+            Console.WriteLine(title);
+            // releaseYear (run length: duration minutes) rating
+            //formatin 1 string concatenation
+            //Console.WriteLine (releaseYear + " (" + duration + " mins) " + rating);
+            
+            // formating 2 string contatenatinon
+            //Console.WriteLine("{0} ({1}mins) {2}", releaseYear, duration, rating);
+            //string temp = String.Format("{0} ({1}mins) {2}", releaseYear, duration, rating);
+            //Console.WriteLine(temp);
 
-            //Handle input
-            if (input== 'A')
-                AddMovie();
+            //formating 3 string interpolation
+            Console.WriteLine($"{releaseYear } ({duration} mins) {rating}");
+
+            //genre (color black white)
+            //Console.WriteLine(genre + " (  + isColor" + ")");
+            // Console.WriteLine($"{genre} ({isColor})");
+            //if (isColor)
+            //  Console.WriteLine($"{genre} (color)");
+            //else
+            //Console.WriteLine($"{ genre} (Black and white)");
+            // conditional operator
+            Console.WriteLine($"{genre} ({(isColor ? "Color" : "Black and White")})");
+
+            Console.WriteLine(releaseYear);
+            Console.WriteLine(duration);
+            Console.WriteLine(isColor);
+            Console.WriteLine(description);
+            Console.WriteLine(genre);
+
+        }
+        static bool confirmQuit()
+        {
+            return ReadBoolean("Are you sure you wnat to quit (Y/N)? ");
+
         }
 
         private static void AddMovie () 
@@ -28,6 +89,14 @@ namespace MovieLib.consoleHost
             string description = ReadString("Enter a description (optional):",false);
         
         }
+        //unit 1 only
+        static string title;
+        static int duration;
+        static int releaseYear;
+        static string rating;
+        static string genre;
+        static bool isColor;
+        static string description;
         static bool ReadBoolean (string message)
 
         {
@@ -53,21 +122,25 @@ namespace MovieLib.consoleHost
         {
             Console.Write(message);
             while (true)
-            { 
+            {
+                //type inferencing - compiler infers actual type based upon usage
+                //has 0 impact on runtime behavior
+                //string input = Console.ReadLine();
+                var input = Console.ReadLine();
 
-            string input = Console.ReadLine();
+                //TODO: Validate
+                //int result = Int32.Parse(input);
+                //int result;
+                //if (Int32.TryParse(input, out result))
 
-            //TODO: Validate
-            //int result = Int32.Parse(input);
-            //int result;
-            //if (Int32.TryParse(input, out result))
+                //if (Int32.TryParse(input, out int result))
+                //   if (result >= minimumValue)
+                //    return result;
 
-            if (Int32.TryParse(input, out int result))
-                if (result >= minimumValue)
+                //  Console.WriteLine("Value must be >= " + minimumValue);
+                if (Int32.TryParse(input, out var result) && result >= minimumValue)
                     return result;
-
                 Console.WriteLine("Value must be >= " + minimumValue);
-
 
 
             };
