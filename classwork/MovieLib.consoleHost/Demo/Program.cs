@@ -100,8 +100,8 @@ namespace Demo
         }
         static void DemoPrimitves ()
         {
-            //Primitives
-            //Integrals
+        //Primitives
+        //Integrals
             sbyte sbyteValue = 10;
             short shortValue = 20;
             int intValue = 62_543;
