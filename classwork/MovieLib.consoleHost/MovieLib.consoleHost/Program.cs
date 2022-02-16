@@ -5,7 +5,7 @@ namespace MovieLib.consoleHost
     class Program
     {
         //Entry point
-        static void Main ( string[] args )
+        static void Main ( string[] args)
         {
             //Block style declaration - all variables declared at top of function
             //on demand / inline declaration - variables are declared as needed
