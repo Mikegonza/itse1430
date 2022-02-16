@@ -5,7 +5,7 @@ namespace MovieLib.consoleHost
     class Program
     {
         //Entry point
-        static void Main ( string[] args)
+        static void Main ( string[] args )
         {
             //Block style declaration - all variables declared at top of function
             //on demand / inline declaration - variables are declared as needed
@@ -36,7 +36,7 @@ namespace MovieLib.consoleHost
                     case 'Q':
                     {
                         if (confirmQuit())
-                            done = true ;
+                            done = true;
                         break;
                     };
                     default: Console.WriteLine("Unknown option"); break;
@@ -46,12 +46,12 @@ namespace MovieLib.consoleHost
         private static void ViewMovie ()
         {
             //ToDo movie exist
-            if (String.IsNullOrEmpty(title ))
+            if (String.IsNullOrEmpty(movie.title)) 
             {
                 Console.WriteLine("no movie to view");
                 return;
             }
-            Console.WriteLine(title);
+            Console.WriteLine(movie.title);
             // releaseYear (run length: duration minutes) rating
             //formatin 1 string concatenation
             //Console.WriteLine (releaseYear + " (" + duration + " mins) " + rating);
@@ -62,7 +62,7 @@ namespace MovieLib.consoleHost
             //Console.WriteLine(temp);
 
             //formating 3 string interpolation
-            Console.WriteLine($"{releaseYear } ({duration} mins) {rating}");
+            Console.WriteLine($"{movie.releaseYear } ({movie.duration} mins) {movie.rating}");
 
             //genre (color black white)
             //Console.WriteLine(genre + " (  + isColor" + ")");
@@ -72,13 +72,13 @@ namespace MovieLib.consoleHost
             //else
             //Console.WriteLine($"{ genre} (Black and white)");
             // conditional operator
-            Console.WriteLine($"{genre} ({(isColor ? "Color" : "Black and White")})");
+            Console.WriteLine($"{movie.genre} ({(movie.isColor ? "Color" : "Black and White")})");
 
-            Console.WriteLine(releaseYear);
-            Console.WriteLine(duration);
-            Console.WriteLine(isColor);
-            Console.WriteLine(description);
-            Console.WriteLine(genre);
+            Console.WriteLine(movie.releaseYear);
+            Console.WriteLine(movie.duration);
+            Console.WriteLine(movie.isColor);
+            Console.WriteLine(movie.description);
+            Console.WriteLine(movie.genre);
 
         }
         static bool confirmQuit ()
@@ -89,36 +89,33 @@ namespace MovieLib.consoleHost
 
         private static void AddMovie ()
         {
-            string tittle = ReadString("Enter a movie tittle", true);
-            int duration = ReadInt32("Enter duration in minutes(>=0):", 0);
-            int releaseYear = ReadInt32("Enter the release year:", 1900);
-            string rating = ReadString("Enter a rating (e.g PG-13):", true);
-            string genre = ReadString("Enter a genre(optional:)", false);
-            bool isColor = ReadBoolean("In color? (Y/N)");
-            string description = ReadString("Enter a description (optional):", false);
+            movie = new Movie();
+
+            movie.title = ReadString("Enter a movie tittle", true);
+            movie.duration = ReadInt32("Enter duration in minutes(>=0):", 0);
+            movie.releaseYear = ReadInt32("Enter the release year:", 1900);
+            movie.rating = ReadString("Enter a rating (e.g PG-13):", true);
+            movie.genre = ReadString("Enter a genre(optional:)", false);
+            movie.isColor = ReadBoolean("In color? (Y/N)");
+            movie.description = ReadString("Enter a description (optional):", false);
 
         }
         private static void DeleteMovie ()
         {
 
-            if (String.IsNullOrEmpty(title))
+            if (String.IsNullOrEmpty(movie.title))
             {
                 Console.WriteLine("No movie to delete");
                 return;
             };
             //delete movie
-            if (ReadBoolean($"Are you sure you want to delete the movie '{title}' (Y/N)"))
-                title= "";
+            if (ReadBoolean($"Are you sure you want to delete the movie '{movie.title}' (Y/N)"))
+                movie.title= "";
 
         }
         //unit 1 only
-        static string title;
-        static int duration;
-        static int releaseYear;
-        static string rating;
-        static string genre;
-        static bool isColor;
-        static string description;
+        static  Movie movie;
+        
         static bool ReadBoolean ( string message )
 
         {
@@ -176,18 +173,19 @@ namespace MovieLib.consoleHost
 
         private static string ReadString ( string message, bool required )
         {
-            do { 
-            Console.WriteLine(message);
-            string input = Console.ReadLine();
-            //Todo: Validate input, if required
-            if (!required || !String.IsNullOrEmpty(input))
-                return input;
-            Console.WriteLine("value is required");
+            do
+            {
+                Console.WriteLine(message);
+                string input = Console.ReadLine();
+                //Todo: Validate input, if required
+                if (!required || !String.IsNullOrEmpty(input))
+                    return input;
+                Console.WriteLine("value is required");
+            }
+            while (true);
+
+
         }
-        while (true);
-            
-        
-    }
         static char DisplayMenu ()
         {
             Console.WriteLine("Movie Library");
@@ -199,27 +197,28 @@ namespace MovieLib.consoleHost
             Console.WriteLine("D)elete Movie");
             Console.WriteLine("Q)uit");
             do
-            { 
-            string input = Console.ReadLine();
+            {
+                string input = Console.ReadLine();
 
-            //Validate input
+                //Validate input
 
-            if (String.Compare(input, "A", true)==0)
-                return 'A';
-            else if (String.Compare(input, "V", true)==0)
-                return 'V';
-            else if (String.Equals(input, "E", StringComparison.CurrentCultureIgnoreCase))
-                return 'E';
-            else if (String.Compare(input, "D", true)==0)
-                return 'D';
-            else if (String.Compare(input, "Q", true)==0)
-                return 'Q';
-            else
-                Console.WriteLine("Invalid Input");
-            } while(true);
-               
-            }
+                if (String.Compare(input, "A", true)==0)
+                    return 'A';
+                else if (String.Compare(input, "V", true)==0)
+                    return 'V';
+                else if (String.Equals(input, "E", StringComparison.CurrentCultureIgnoreCase))
+                    return 'E';
+                else if (String.Compare(input, "D", true)==0)
+                    return 'D';
+                else if (String.Compare(input, "Q", true)==0)
+                    return 'Q';
+                else
+                    Console.WriteLine("Invalid Input");
+            } while (true);
+
         }
-        
     }
+}
+        
+    
 
