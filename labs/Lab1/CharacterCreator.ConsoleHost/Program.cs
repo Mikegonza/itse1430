@@ -44,7 +44,7 @@ namespace CharacterCreator.ConsoleHost
                     case 'q':
                     case 'Q':
                     {
-                        if (confirmQuit())
+                        if (ConfirmQuit())
                             done = true;
                         break;
                     };
@@ -130,12 +130,12 @@ namespace CharacterCreator.ConsoleHost
             }           
             private static void ViewCharacter ()
             {
-            if (String.IsNullOrEmpty(ViewCharacter))
+            if (String.IsNullOrEmpty(nameCharacter ))
                    {
                      Console.WriteLine("No Character to show");
                      return;
                  };
-            Console.WriteLine(ViewCharacter);
+            Console.WriteLine(nameCharacter );
             Console.WriteLine($"{nameCharacter} {profession}  {race} {attribute}");
             }      
             static bool ConfirmQuit ()
