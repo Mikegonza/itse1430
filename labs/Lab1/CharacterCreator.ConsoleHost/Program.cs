@@ -95,13 +95,13 @@ namespace CharacterCreator.ConsoleHost
             }           
             private static void ViewCharacter ()
             {
-                if (String.IsNullOrEmpty(ViewCharacter ))
-                {
-                    Console.WriteLine("No Character to show");
-                    return;
-                };
-                Console.WriteLine( ViewCharacter );               
-                Console.WriteLine($"{nameCharacter} {profession}  {race} {attribute}");
+            if (String.IsNullOrEmpty(ViewCharacter))
+                   {
+                     Console.WriteLine("No Character to show");
+                     return;
+                 };
+            Console.WriteLine(ViewCharacter);
+            Console.WriteLine($"{nameCharacter} {profession}  {race} {attribute}");
             }      
             static bool ConfirmQuit ()
             {
