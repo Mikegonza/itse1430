@@ -12,7 +12,16 @@ namespace CharacterCreator.ConsoleHost
         private static string profession;
         private static string race;
         private static string attribute;
-        
+        private int holy = 10;
+        private int protection = 20;
+        private int retribution = 30;
+        private int dicipline = 40;
+        private int shadow = 50;
+        private int arms = 60;
+        private int blood = 70;
+        private int fire = 80;
+        private int frost = 90;
+        private int survival = 100;
         static void Main ( string[] args )
        
         
@@ -75,10 +84,36 @@ namespace CharacterCreator.ConsoleHost
             }
             private static void CreateCharacter ()
             
-            {           
+            {
             nameCharacter=ReadString("Enter the Name of the character ", true);
+            Console.WriteLine("Character Profession Menu : ");
+            Console.WriteLine("".PadLeft(20, '-'));
+            Console.WriteLine("Warrior ");
+            Console.WriteLine("Paladin ");
+            Console.WriteLine("Hunter ");
+            Console.WriteLine("Priest");
+            Console.WriteLine("Mage ");            
             profession=ReadString("Enter the Profesion of the Character", true);
+            Console.WriteLine("Character Race Menu : ");
+            Console.WriteLine("".PadLeft(20, '-'));
+            Console.WriteLine("Human ");
+            Console.WriteLine("Orcs ");
+            Console.WriteLine("Dwarf ");
+            Console.WriteLine("Gnome ");
+            Console.WriteLine("Pandaren ");
             race=ReadString ("Enter the race of the character", true);
+            Console.WriteLine("Character Attributes Menu : ");
+            Console.WriteLine("".PadLeft(20, '-'));
+            Console.WriteLine("Holy ");
+            Console.WriteLine("Protecyion ");
+            Console.WriteLine("Retribution ");
+            Console.WriteLine("Dicipline ");
+            Console.WriteLine("Shadow ");
+            Console.WriteLine("arms ");
+            Console.WriteLine ("blood");
+            Console.WriteLine("fire ");
+            Console.WriteLine("frost ");
+            Console.WriteLine("survival ");
             attribute=ReadString ("Enter the Attributes for the Character", true);
 
             }                        
