@@ -12,7 +12,7 @@ namespace CharacterCreator.ConsoleHost
         private static string profession;
         private static string race;
         private static string attribute;
-
+        
         static void Main ( string[] args )
        
         
