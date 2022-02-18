@@ -46,7 +46,8 @@ namespace MovieLib.consoleHost
         private static void ViewMovie ()
         {
             //ToDo movie exist
-            if (String.IsNullOrEmpty(movie.title)) 
+            //if (String.IsNullOrEmpty(movie.title)) 
+            if (movie==null)
             {
                 Console.WriteLine("no movie to view");
                 return;
@@ -72,11 +73,11 @@ namespace MovieLib.consoleHost
             //else
             //Console.WriteLine($"{ genre} (Black and white)");
             // conditional operator
-            Console.WriteLine($"{movie.genre} ({(movie.isColor ? "Color" : "Black and White")})");
+            Console.WriteLine($"{movie.genre} ({(movie.Classic ? "Classic" : "Black and White")})");
 
             Console.WriteLine(movie.releaseYear);
             Console.WriteLine(movie.duration);
-            Console.WriteLine(movie.isColor);
+            Console.WriteLine(movie.isClassic);
             Console.WriteLine(movie.description);
             Console.WriteLine(movie.genre);
 
@@ -86,31 +87,42 @@ namespace MovieLib.consoleHost
             return ReadBoolean("Are you sure you wnat to quit (Y/N)? ");
 
         }
-
+        
         private static void AddMovie ()
-        {
+        { 
+            do
+            {
+           
             movie = new Movie();
 
-            movie.title = ReadString("Enter a movie tittle", true);
+            movie.Title = ReadString("Enter a movie tittle", true);
             movie.duration = ReadInt32("Enter duration in minutes(>=0):", 0);
             movie.releaseYear = ReadInt32("Enter the release year:", 1900);
             movie.rating = ReadString("Enter a rating (e.g PG-13):", true);
             movie.genre = ReadString("Enter a genre(optional:)", false);
-            movie.isColor = ReadBoolean("In color? (Y/N)");
+            movie.isColor = ReadBoolean("Is Classic (Y/N)");
             movie.description = ReadString("Enter a description (optional):", false);
-
+            //movie.isBlackAndWhite= movie.releaseYear <= 1939;
+            movie.CalculateBlackAndWhite();
+            var error = movie.Validate();
+            if (!String.IsNullOrEmpty (error))
+                return;
+            Console.WriteLine (error);
+            }while (true);
         }
+        
         private static void DeleteMovie ()
         {
 
-            if (String.IsNullOrEmpty(movie.title))
+            //if (String.IsNullOrEmpty(movie.title))
+            if (movie==null)
             {
                 Console.WriteLine("No movie to delete");
                 return;
             };
             //delete movie
             if (ReadBoolean($"Are you sure you want to delete the movie '{movie.title}' (Y/N)"))
-                movie.title= "";
+                movie= null;
 
         }
         //unit 1 only
