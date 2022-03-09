@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieLib.consoleHost", "Mov
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieLib", "ClassLibrary1\MovieLib.csproj", "{1920705A-4F99-4786-97CA-B5A4488A435E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieLib.WinHost", "MovieLib.WinHost\MovieLib.WinHost.csproj", "{49B5B981-C4C7-4F21-8395-E014BB69C053}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1920705A-4F99-4786-97CA-B5A4488A435E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1920705A-4F99-4786-97CA-B5A4488A435E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1920705A-4F99-4786-97CA-B5A4488A435E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49B5B981-C4C7-4F21-8395-E014BB69C053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49B5B981-C4C7-4F21-8395-E014BB69C053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49B5B981-C4C7-4F21-8395-E014BB69C053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49B5B981-C4C7-4F21-8395-E014BB69C053}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
