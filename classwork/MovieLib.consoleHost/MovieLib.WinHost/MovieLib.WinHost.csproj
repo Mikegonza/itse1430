@@ -4,6 +4,9 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <Product>ITSE 1430</Product>
+    <Company />
+    <Authors>Miguel Gonzalez</Authors>
   </PropertyGroup>
 
 </Project>

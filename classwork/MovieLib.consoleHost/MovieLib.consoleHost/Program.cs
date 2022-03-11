@@ -4,7 +4,7 @@
  */
 using System;
 
-namespace MovieLib.ConsoleHost
+namespace MovieLib.ConsoleHost { 
  class Program
 {
     //Entry point
